@@ -1,0 +1,153 @@
+/* Cores principais */
+:root {
+  --vermelho: #d41e0a;
+  --preto: #1c1c1c;
+  --azul-oceano: #5522b3;
+  --branco: #f2f2f2;
+}
+
+.banner {
+  background-color: var(--preto);
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('seu-banner.jpg'); /* Você pode trocar depois */
+  background-size: cover;
+  background-position: center;
+}
+
+.banner h1 {
+  color: var(--vermelho);
+  font-size: 3em;
+  background-color: rgba(0, 0, 0, 0.6); /* fundo semi-transparente no texto */
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--preto);
+  color: var(--branco);
+}
+
+header {
+  background-color: var(--vermelho);
+  padding: 20px;
+  text-align: center;
+}
+
+#logo {
+  margin: 0;
+  font-size: 2em;
+  color: var(--branco);
+}
+
+nav {
+  margin-top: 10px;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.menu li a {
+  color: var(--branco);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.menu li a:hover {
+  color: var(--azul-oceano);
+}
+
+main {
+  padding: 30px;
+  text-align: center;
+}
+
+.destaque {
+  background-color: var(--azul-oceano);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.carrossel {
+  max-width: 400px;
+  margin: 20px auto;
+  position: relative;
+}
+
+.carrossel input[type="radio"] {
+  display: none;
+}
+
+.slides {
+  display: flex;
+  width: 500%;
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  width: 100%;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.slide img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.navegacao {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.navegacao label {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+  background-color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#slide1:checked ~ .slides {
+  transform: translateX(0%);
+}
+#slide2:checked ~ .slides {
+  transform: translateX(-100%);
+}
+#slide3:checked ~ .slides {
+  transform: translateX(-200%);
+}
+#slide4:checked ~ .slides {
+  transform: translateX(-300%);
+}
+#slide5:checked ~ .slides {
+  transform: translateX(-400%);
+}
+
+#slide1:checked ~ .navegacao label[for="slide1"],
+#slide2:checked ~ .navegacao label[for="slide2"],
+#slide3:checked ~ .navegacao label[for="slide3"],
+#slide4:checked ~ .navegacao label[for="slide4"],
+#slide5:checked ~ .navegacao label[for="slide5"] {
+  background-color: #333;
+}
+
+
+footer {
+  background-color: var(--vermelho);
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}

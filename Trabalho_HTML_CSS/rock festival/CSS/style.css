@@ -1,0 +1,185 @@
+:root {
+  --vermelho: #e74c3c;
+  --preto: #1c1c1c;
+  --azul-oceano: #0077b6;
+  --branco: #f2f2f2;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--preto);
+  color: var(--branco);
+}
+
+header {
+  background-color: var(--vermelho);
+  padding: 20px;
+  text-align: center;
+}
+
+#logo {
+  margin: 0;
+  font-size: 2em;
+  color: var(--branco);
+}
+
+nav {
+  margin-top: 10px;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.menu li a {
+  color: var(--branco);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.menu li a:hover {
+  color: var(--azul-oceano);
+}
+
+main {
+  padding: 30px;
+  text-align: center;
+}
+
+footer {
+  background-color: var(--vermelho);
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}
+
+/* Carrossel simples com imagens 500x500 */
+.carrossel-simples {
+  max-width: 520px;
+  margin: 30px auto;
+  position: relative;
+}
+
+.carrossel-simples input {
+  display: none;
+}
+
+.slides {
+  position: relative;
+  height: 550px;
+}
+
+.slide {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  width: 100%;
+  top: 0;
+  left: 0;
+  text-align: center;
+}
+
+.slide img {
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}
+
+.slide p {
+  margin-top: 12px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--azul-oceano);
+  text-shadow: 1px 1px 3px black;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Slide ativo */
+#slide1:checked ~ .slides #s1,
+#slide2:checked ~ .slides #s2,
+#slide3:checked ~ .slides #s3,
+#slide4:checked ~ .slides #s4,
+#slide5:checked ~ .slides #s5 {
+  opacity: 1;
+  position: relative;
+}
+
+/* Navegação com bolinhas */
+.radio-nav {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.radio-nav label {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 0 6px;
+  background-color: #aaa;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.radio-nav label:hover,
+#slide1:checked ~ .radio-nav label[for="slide1"],
+#slide2:checked ~ .radio-nav label[for="slide2"],
+#slide3:checked ~ .radio-nav label[for="slide3"],
+#slide4:checked ~ .radio-nav label[for="slide4"],
+#slide5:checked ~ .radio-nav label[for="slide5"] {
+  background-color: var(--azul-oceano);
+}
+
+/* ================================
+   ESTILO ADICIONADO PARA CONTATO
+   ================================ */
+
+.contato {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.contato h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: var(--azul-oceano);
+}
+
+.contato .descricao {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.cartao-contato {
+  background-color: #222;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  text-align: left;
+  color: var(--branco);
+}
+
+.cartao-contato p {
+  margin: 15px 0;
+  font-size: 1.1rem;
+}
+
+.cartao-contato a {
+  color: var(--azul-oceano);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.cartao-contato a:hover {
+  text-decoration: underline;
+}
