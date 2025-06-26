@@ -1,6 +1,6 @@
 :root {
-  --vermelho: #e74c3c;
-  --preto: #1c1c1c;
+  --vermelho: #ED1C24;    /* alterado conforme pedido */
+  --preto: #1C1C1C;       /* alterado conforme pedido */
   --azul-oceano: #0077b6;
   --branco: #f2f2f2;
 }
@@ -12,54 +12,210 @@ body {
   color: var(--branco);
 }
 
-header {
-  background-color: var(--vermelho);
-  padding: 20px;
-  text-align: center;
-}
-
-#logo {
-  margin: 0;
-  font-size: 2em;
+/* Fundo com imagem + overlay para página data e local */
+body.fundo-imagem {
+  background-image: url('../img/destaque-banner.png'); /* ajuste caminho */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  min-height: 100vh;
   color: var(--branco);
 }
 
+body.fundo-imagem::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: -1;
+}
+
+/* Cabeçalho com logo */
+header {
+  background-color: var(--vermelho);
+  padding: 20px 40px;
+  text-align: center;
+}
+
+.logo {
+  max-height: 120px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+/* Banner no topo */
+.banner-header {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.banner-header img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.banner-texto {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--branco);
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px 30px;
+  border-radius: 10px;
+  max-width: 90%;
+}
+
+.banner-texto h1 {
+  margin: 0 0 15px;
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 4px black;
+}
+
+/* Botão */
+.botao {
+  display: inline-block;
+  background-color: var(--azul-oceano);
+  color: var(--branco);
+  padding: 12px 28px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 8px rgba(0, 119, 182, 0.6);
+  transition: background-color 0.3s ease;
+}
+
+.botao:hover {
+  background-color: #005f8a;
+}
+
+/* Menu abaixo do banner */
 nav {
-  margin-top: 10px;
+  background-color: var(--vermelho);
 }
 
 .menu {
   list-style: none;
-  padding: 0;
+  padding: 10px 0;
+  margin: 0;
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
 }
 
 .menu li a {
   color: var(--branco);
   text-decoration: none;
   font-weight: bold;
-  transition: color 0.3s;
+  font-size: 1.1rem;
+  padding: 8px 12px;
+  display: block;
+  transition: background-color 0.3s, color 0.3s;
+  border-radius: 5px;
 }
 
 .menu li a:hover {
-  color: var(--azul-oceano);
+  background-color: var(--azul-oceano);
+  color: var(--branco);
 }
 
+/* Conteúdo principal */
 main {
-  padding: 30px;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
   text-align: center;
 }
 
+/* Seção sobre-home atualizada com imagem à esquerda e texto à direita */
+.sobre-home {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 900px;
+  margin: 40px auto;
+  gap: 30px;
+  padding: 0 20px;
+  color: var(--branco);
+}
+
+.sobre-imagem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centraliza imagem e botão na coluna */
+}
+
+.sobre-imagem img {
+  width: 100%;
+  height: auto;
+  border-radius: 0;  /* sem borda arredondada */
+  box-shadow: none;  /* sem sombra */
+  display: block;
+}
+
+.sobre-imagem .botao {
+  margin-top: 15px; /* espaço entre imagem e botão */
+  align-self: center;
+}
+
+.sobre-texto {
+  flex: 1;
+  text-align: left;
+}
+
+.sobre-texto h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--azul-oceano);
+}
+
+.sobre-texto p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* Responsivo para telas pequenas */
+@media (max-width: 768px) {
+  .sobre-home {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .sobre-texto {
+    text-align: center;
+  }
+
+  .sobre-imagem {
+    width: 100%;
+  }
+
+  .sobre-imagem .botao {
+    align-self: center;
+  }
+}
+
+/* Rodapé */
 footer {
   background-color: var(--vermelho);
   text-align: center;
   padding: 15px;
   margin-top: 40px;
+  font-size: 0.9rem;
 }
 
-/* Carrossel simples com imagens 500x500 */
+/* Carrossel */
 .carrossel-simples {
   max-width: 520px;
   margin: 30px auto;
@@ -138,10 +294,7 @@ footer {
   background-color: var(--azul-oceano);
 }
 
-/* ================================
-   ESTILO ADICIONADO PARA CONTATO
-   ================================ */
-
+/* Contato */
 .contato {
   max-width: 600px;
   margin: 40px auto;
@@ -182,4 +335,111 @@ footer {
 
 .cartao-contato a:hover {
   text-decoration: underline;
+}
+
+/* Mosaico */
+.atracoes-quadro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 40px;
+  margin: 40px auto;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+.texto-lateral {
+  flex: 1 1 300px;
+  max-width: 400px;
+  text-align: left;
+}
+
+.mosaico-imagens {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  flex: 1 1 600px;
+  justify-items: center;
+}
+
+.mosaico-imagens .item {
+  width: 300px;
+  text-align: center;
+}
+
+.mosaico-imagens .item img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.mosaico-imagens .item p {
+  margin-top: 10px;
+  font-size: 1.4rem;
+  color: var(--azul-oceano);
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Comprar ingresso */
+.comprar-ingresso {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #222;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  text-align: center;
+}
+
+.comprar-ingresso h1 {
+  font-size: 2rem;
+  color: var(--azul-oceano);
+  margin-bottom: 20px;
+}
+
+.info-evento {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.formulario-ingresso {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.formulario-ingresso label {
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.formulario-ingresso input,
+.formulario-ingresso select {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+  background-color: #333;
+  color: var(--branco);
+}
+
+.formulario-ingresso input::placeholder {
+  color: #ccc;
+}
+
+/* MAPA DA PÁGINA DATA E LOCAL */
+.mapa-container {
+  margin-top: 25px;
+  max-width: 900px;
+  height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
 }

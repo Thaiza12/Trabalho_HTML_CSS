@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Comprar Ingresso - Rock & Pop Festival</title>
+  <link rel="stylesheet" href="CSS/style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="img/Logo_2.png" alt="Logo Rock & Pop Festival" class="logo" />
+      </a>
+    </div>
+  </header>
+
+  <main class="comprar-ingresso">
+    <h1>Garanta seu ingresso!</h1>
+    <p class="info-evento">
+      O Rock & Pop Festival 2025 acontecerá nos dias <strong>16 a 17 de agosto</strong>, no <strong>Parque das Nações</strong>, em Recife - PE.
+    </p>
+
+    <div class="formulario-ingresso">
+      <label for="nome">Nome completo:</label>
+      <input type="text" id="nome" name="nome" placeholder="Seu nome" required />
+
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" placeholder="seuemail@email.com" required />
+
+      <label for="quantidade">Quantidade de ingressos:</label>
+      <select id="quantidade" name="quantidade">
+        <option value="1">1 ingresso - R$ 150,00</option>
+        <option value="2">2 ingressos - R$ 300,00</option>
+        <option value="3">3 ingressos - R$ 450,00</option>
+      </select>
+
+      <button type="submit" class="botao">Finalizar Compra</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 - Rock & Pop Festival. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>
